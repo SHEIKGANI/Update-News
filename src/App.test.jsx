@@ -1,14 +1,17 @@
 // src/App.test.jsx
-import { describe, it, expect } from 'vitest'
-import { render } from '@testing-library/react'
-import App from './App'
+import { describe, it, expect, vi } from 'vitest'
+import { render, screen } from '@testing-library/react'
 
-// Optional: mock Newsapp if you don't want to test its rendering
-jest.mock('./Newsapp', () => () => <div>Newsapp Mock</div>)
+// HOIST MOCK — must match import path in App.jsx
+vi.mock('./components/Newsapp', () => ({
+  default: () => <div>Newsapp Mock</div>
+}))
+
+import App from './App'
 
 describe('App component', () => {
   it('renders Newsapp', () => {
-    const { getByText } = render(<App />)
-    expect(getByText('Newsapp Mock')).toBeTruthy()
+    render(<App />)
+    expect(screen.getByText('Newsapp Mock')).toBeTruthy()
   })
 })
