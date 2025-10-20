@@ -9,7 +9,7 @@ function App() {
     <Newsapp />
   )
 
-  //dummy comment
+  //dummy comment.
 }
 
 export default App
