@@ -8,6 +8,8 @@ function App() {
   return (
     <Newsapp />
   )
+
+  //dummy comment
 }
 
 export default App
